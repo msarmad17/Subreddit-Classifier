@@ -1,2 +1,10 @@
 # Subreddit-Classifier
-This is the code for a model I trained on a training set containing comments from four subreddits. The training data contains 19,600 comments which are unclean, containing all sorts of typos and slang. I first cleaned the comments, then applied word2vec to calculate the sum of word vectors for each comment. Then, I used TF-IDF and cosine similarity to find words that are common across each subreddit and relevant to its topic. Taking these common relevant words from each subreddit, I checked if each comment contained any of these words, appending a value of 1 for a word (dimension/feature) if it was present or a value of 0 if it was not. The final vectors have ~390 dimensions (300 from the word2vec representations, and ~90 from the TF-IDF add-on words). Sklearn's Logistic Regression model when trained on this training data, achieved a 78.5% accuracy when classifying comments from the testing set to one of the four subreddits.
+The "Subreddit Classifier.ipynb" contains all the functions needed to run the program.
+
+In order for it to run successfully, you will need to have the following files present in the same directory:
+1. The training file:   redditComments_train.jsonlist
+2. The testing file:    redditComments_test.jsonlist
+3. The file with word2vec vectors:    GoogleNews-vectors-negative300.bin
+
+The first two are provided in the repository.
+The last one is too large to upload here, but can be dowloaded here: https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit
